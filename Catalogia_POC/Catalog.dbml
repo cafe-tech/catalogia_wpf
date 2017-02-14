@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SANCTUARY" ContextNamespace="Catalogia_POC" Class="CatalogDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=WILDWIND\PLACHTA;Initial Catalog=CATALOGIA;User ID=sa" SettingsObjectName="Catalogia_POC.Properties.Settings" SettingsPropertyName="CATALOGIAConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="" Member="CatalogObjects">
+    <Type Name="CatalogObject">
+      <Column Name="objectID" Member="ObjectID" Storage="_obj_ID" Type="System.String" DbType="varchar(50)" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="objectName" Member="ObjectName" Storage="_obj_Name" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="AcquisitionDate" Storage="_obj_AcquisitionDate" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="CatalogDate" Storage="_obj_CatalogDate" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="UpdatedBy" Storage="_obj_UpdatedBy" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="StatusCode" Storage="_obj_StatusCode" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="OtherName" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="OtherNumber" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="OldNumber" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Accession" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="HomeLocation" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Date" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="YearRange" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="CatalogedBy" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="StatusDate" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="StatusBy" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Status" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="CollectionID" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="CatalogObject_CatalogCustomFields" Member="CatalogCustomFields" ThisKey="ObjectID" OtherKey="ObjectID" Type="CatalogCustomFields" />
+      <Association Name="Collection_CatalogObject" Member="Collection" ThisKey="CollectionID" OtherKey="CollectionID" Type="Collection" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Collections">
+    <Type Name="Collection">
+      <Column Name="CollectionID" Storage="_col_CollectionID" Type="System.String" DbType="varchar(50)" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CollectionName" Storage="_col_CollectionName" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="LongDescription" Storage="_col_LongDescription" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ShortDescription" Storage="_col_ShortDescription" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Collection_CatalogObject" Member="CatalogObjects" ThisKey="CollectionID" OtherKey="CollectionID" Type="CatalogObject" />
+      <Association Name="Collection_CatalogCollection" Member="CatalogCollections" ThisKey="CollectionID" OtherKey="CollectionID" Type="CatalogCollection" />
+    </Type>
+  </Table>
+  <Table Name="" Member="CatalogCustomFields">
+    <Type Name="CatalogCustomFields">
+      <Column Name="CategoryID" Storage="_cus_CategoryID" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ObjectID" Storage="_cus_Obj_ID" AutoSync="OnInsert" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Collector" Storage="_cus_Collector" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Title" Storage="_cus_Title" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Artist" Storage="_cus_Artist" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="SignedName" Storage="_cus_SignedName" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="SigLocation" Storage="_cus_SigLocation" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Medium" Storage="_cus_Medium" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Technique" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Material" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="CustomFieldID" Type="System.String" DbType="varchar(50)" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Culture" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="School" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Accessories" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ImageSize" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="FrameSize" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="FrameDesc" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Provenance" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="CatalogObject_CatalogCustomFields" Member="CatalogObject" ThisKey="ObjectID" OtherKey="ObjectID" Type="CatalogObject" IsForeignKey="true" />
+      <Association Name="Category_CatalogCustomFields" Member="Category" ThisKey="CategoryID" OtherKey="CategoryID" Type="Category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Catalogs">
+    <Type Name="Catalog">
+      <Column Name="Name" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="CatalogID" Type="System.String" DbType="varchar(50)" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Catalog_CatalogCollection" Member="CatalogCollections" ThisKey="CatalogID" OtherKey="CatalogID" Type="CatalogCollection" />
+    </Type>
+  </Table>
+  <Table Name="" Member="CatalogCollections">
+    <Type Name="CatalogCollection">
+      <Column Name="CatalogCollectionID" Type="System.String" DbType="varchar(50)" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="CatalogID" Type="System.String" DbType="varchar(50)" CanBeNull="false" />
+      <Column Name="CollectionID" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Catalog_CatalogCollection" Member="Catalog" ThisKey="CatalogID" OtherKey="CatalogID" Type="Catalog" IsForeignKey="true" />
+      <Association Name="Collection_CatalogCollection" Member="Collection" ThisKey="CollectionID" OtherKey="CollectionID" Type="Collection" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Categories">
+    <Type Name="Category">
+      <Column Name="CategoryID" Type="System.String" DbType="varchar(36)" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CategoryDesc" Type="System.String" DbType="varchar(50)" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Category_CatalogCustomFields" Member="CatalogCustomFields" ThisKey="CategoryID" OtherKey="CategoryID" Type="CatalogCustomFields" />
+    </Type>
+  </Table>
+</Database>

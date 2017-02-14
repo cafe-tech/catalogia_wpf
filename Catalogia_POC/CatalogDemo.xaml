@@ -1,0 +1,131 @@
+﻿<Window x:Class="Catalogia_POC.LibraryDemo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Catalogia_POC"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Catalog POC Demo" Height="781.074" Width="1011.427">
+
+    <Window.DataContext>
+        <local:CatalogDemoViewModel />
+    </Window.DataContext>
+
+    <Grid>
+        <Button x:Name="btnFirst" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="35" 
+                Command="{Binding ButtonCommand}"
+                CommandParameter="FirstPage"
+                />
+        <Button x:Name="btnPrev" Content="&lt;" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" Width="35" 
+                Command="{Binding ButtonCommand}"
+                CommandParameter="PrevPage" 
+                />
+        <Button x:Name="btnNext" Content="&gt;" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="35" 
+                Command="{Binding ButtonCommand}"
+                CommandParameter="NextPage"                
+                />
+        <Button x:Name="btnLast" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top" Width="35" 
+                Command="{Binding ButtonCommand}"
+                CommandParameter="LastPage" 
+                />
+        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="50" 
+                Command="{Binding ButtonCommand}"
+                CommandParameter="Create" Click="btnAdd_Click"/>
+        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="290,10,0,0" VerticalAlignment="Top" Width="75" 
+                Command="{Binding ButtonCommand}"
+                CommandParameter="Update"
+                />
+        <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="370,10,0,0" VerticalAlignment="Top" Width="75" 
+                Command="{Binding ButtonCommand}"
+                CommandParameter="Delete"
+                />
+        <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="824,10,0,0" VerticalAlignment="Top" Width="75" Click="btnExit_Click"/>
+
+        <Grid Background="#FFE5E5E5" HorizontalAlignment="Left" Height="216" Margin="170,53,0,0" VerticalAlignment="Top" Width="605">
+            <Label x:Name="label" Content="Collection" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,7,0,0"/>
+            <TextBox x:Name="txtCollection" Text="{Binding Path=ViewCollection.Collection, Mode=TwoWay}"  HorizontalAlignment="Left" Height="23" Margin="110,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+            <Label x:Name="label_Copy1" Content="Object Name&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,38,0,0"/>
+            <TextBox x:Name="txtObjectName" Text="{Binding Path=ViewCollection.ObjectName, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="110,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+            <Label x:Name="label_Copy2" Content="Other Name&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,66,0,0"/>
+            <TextBox x:Name="txtOtherName" Text="{Binding Path=ViewCollection.OtherName, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="110,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+            <Label x:Name="label_Copy3" Content="Other #&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,94,0,0"/>
+            <TextBox x:Name="txtOtherNumber" Text="{Binding Path=ViewCollection.OtherNumber, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="110,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+            <Label x:Name="label_Copy4" Content="Old #" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,122,0,0"/>
+            <TextBox x:Name="txtOldNumber" Text="{Binding Path=ViewCollection.OldNumber, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="110,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+            <Label x:Name="label_Copy5" Content="Accession" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,150,0,0"/>
+            <TextBox x:Name="txtAccession" Text="{Binding Path=ViewCollection.Accession, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="110,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+            <Label x:Name="label_Copy6" Content="Home Location" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,178,0,0"/>
+            <TextBox x:Name="txtHomeLocation" Text="{Binding Path=ViewCollection.HomeLocation, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="110,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+            <Label x:Name="label_Copy7" Content="Date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,10,0,0"/>
+            <TextBox x:Name="txtDate" Text="{Binding Path=ViewCollection.Date, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="431,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126"/>
+            <Label x:Name="label_Copy8" Content="Year Range" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,38,0,0"/>
+            <TextBox x:Name="txtYearRange" Text="{Binding Path=ViewCollection.YearRange, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="431,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126"/>
+            <Label x:Name="label_Copy9" Content="Catalog Date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,66,0,0"/>
+            <TextBox x:Name="txtCatalogDate" Text="{Binding Path=ViewCollection.CatalogDate, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="431,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126"/>
+            <Label x:Name="label_Copy10" Content="Catalogued by" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,91,0,0"/>
+            <TextBox x:Name="txtCataloguedBy" Text="{Binding Path=ViewCollection.CatalogedBy, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="431,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126"/>
+            <Label x:Name="label_Copy11" Content="Status Date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,121,0,0"/>
+            <TextBox x:Name="txtStatusDate" Text="{Binding Path=ViewCollection.StatusDate, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="431,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126"/>
+            <Label x:Name="label_Copy12" Content="Status By" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,152,0,0"/>
+            <TextBox x:Name="txtStatusBy" Text="{Binding Path=ViewCollection.StatusBy, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="431,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126"/>
+            <Label x:Name="label_Copy13" Content="Status" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,177,0,0"/>
+            <TextBox x:Name="txtStatus" Text="{Binding Path=ViewCollection.Status, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="431,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126"/>
+        </Grid>
+        <Grid Background="#FFE5E5E5" HorizontalAlignment="Left" Height="391" Margin="170,315,0,0" VerticalAlignment="Top" Width="817">
+            <Label x:Name="label1" Content="Description" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,7,0,0"/>
+            <TextBox x:Name="txtDescription" Text="{Binding Path=ViewCollection.Description, Mode=TwoWay}" HorizontalAlignment="Left" Height="109" Margin="10,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301"/>
+            <Label x:Name="label_Copy14" Content="Collector" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,160,0,0"/>
+            <TextBox x:Name="txtCollector"  Text="{Binding Path=ViewCollection.Collector, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="110,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+            <Label x:Name="label_Copy15" Content="Title&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,188,0,0"/>
+            <TextBox x:Name="txtTitle" Text="{Binding Path=ViewCollection.Title, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="110,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+            <Label x:Name="label_Copy16" Content="Artist&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,216,0,0"/>
+            <TextBox x:Name="txtArtist" Text="{Binding Path=ViewCollection.Artist, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="110,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+            <Label x:Name="label_Copy17" Content="Signed Name&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,244,0,0"/>
+            <TextBox x:Name="txtSignedName" Text="{Binding Path=ViewCollection.SignedName, Mode=TwoWay}"  HorizontalAlignment="Left" Height="23" Margin="110,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+            <Label x:Name="label_Copy18" Content="Sig Location" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,272,0,0"/>
+            <TextBox x:Name="txtSigLocation" Text="{Binding Path=ViewCollection.SigLocation, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="110,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+            <Label x:Name="label_Copy19" Content="Medium" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,300,0,0"/>
+            <TextBox x:Name="txtMedium" Text="{Binding Path=ViewCollection.Medium, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="110,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+            <Label x:Name="label_Copy20" Content="Material" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,328,0,0"/>
+            <TextBox x:Name="txtMaterial" Text="{Binding Path=ViewCollection.Material, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="110,328,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+            <Label x:Name="label_Copy21" Content="Culture" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,10,0,0"/>
+            <TextBox x:Name="txtCulture" Text="{Binding Path=ViewCollection.Culture, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="431,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="376"/>
+            <Label x:Name="label_Copy22" Content="School" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,38,0,0"/>
+            <TextBox x:Name="txtSchool" Text="{Binding Path=ViewCollection.School, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="431,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="376"/>
+            <Label x:Name="label_Copy23" Content="Accessories" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,66,0,0"/>
+            <TextBox x:Name="txtAccessories" Text="{Binding Path=ViewCollection.Accessories, Mode=TwoWay}" HorizontalAlignment="Left" Height="53" Margin="431,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="376"/>
+            <Label x:Name="label_Copy24" Content="Image Size" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,121,0,0"/>
+            <TextBox x:Name="txtImageSize" Text="{Binding Path=ViewCollection.ImageSize, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="431,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126"/>
+            <Label x:Name="label_Copy25" Content="Frame Size" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,150,0,0"/>
+            <TextBox x:Name="txtFrameSize" Text="{Binding Path=ViewCollection.FrameSize, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="431,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126"/>
+            <Label x:Name="label_Copy26" Content="Frame Desc" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,180,0,0"/>
+            <TextBox x:Name="txtFrameDesc" Text="{Binding Path=ViewCollection.FrameDesc, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="431,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126"/>
+            <Label x:Name="label_Copy27" Content="Provenance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,209,0,0"/>
+            <TextBox x:Name="txtProvenance" Text="{Binding Path=ViewCollection.Provenance, Mode=TwoWay}" HorizontalAlignment="Left" Height="143" Margin="329,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="478"/>
+            <Label x:Name="label_Copy28" Content="Technique" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,359,0,0"/>
+            <TextBox x:Name="txtTechnique" Text="{Binding Path=ViewCollection.Technique, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="110,359,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+        </Grid>
+        <Grid Background="LightGray" HorizontalAlignment="Left" Height="36" Margin="170,274,0,0" VerticalAlignment="Top" Width="817">
+            <Label x:Name="txtCatLabel" Content="" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="label3" Content="Category:" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+        </Grid>
+        <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="912,10,0,0" VerticalAlignment="Top" Width="75" 
+                Command="{Binding ButtonCommand}"
+                CommandParameter="Reset"                
+                />
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="225,10,0,0" VerticalAlignment="Top" Width="60" 
+                Command="{Binding ButtonCommand}"
+                CommandParameter="Save" Click="btnSave_Click" IsEnabled="False"
+                />
+        <Label x:Name="lblRecords" Content="Record:" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2" Content="{Binding Path=RecordCount, Mode=TwoWay}" HorizontalAlignment="Left" Margin="70,45,0,0" VerticalAlignment="Top" Width="86"/>
+        <ComboBox x:Name="cmbCategory" HorizontalAlignment="Left" Margin="253,281,0,0" VerticalAlignment="Top" Width="161"
+               SelectedItem="{Binding Path=CurrentCategoryId, Mode=TwoWay}"
+               SelectedValue="{Binding Path=CurrentCategoryId, Mode=TwoWay}"
+               DisplayMemberPath="CategoryDesc"
+               SelectedValuePath="CategoryId"
+               ItemsSource="{Binding Path=ViewCategories, Mode=TwoWay}"
+                  SelectionChanged="cmbCategory_SelectionChanged"
+                  />
+    </Grid>
+</Window>
